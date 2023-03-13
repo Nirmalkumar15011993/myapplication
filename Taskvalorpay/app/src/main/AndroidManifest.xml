@@ -14,7 +14,8 @@
         android:theme="@style/Theme.Taskvalorpay"
         tools:targetApi="31">
         <activity
-            android:name=".view.MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name=".view.activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,10 +27,16 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".view.UserDetailsActivity"
+        <activity android:name=".view.activities.MainActivity"
+            android:label="Home"/>
+        <activity android:name=".view.activities.UserDetailsActivity"
             android:label="User Details"/>
-        <activity android:name=".view.ShowPostActivity"
+        <activity android:name=".view.activities.ShowPostActivity"
             android:label="User Post"/>
+        <activity android:name=".view.activities.SearchingActivity"
+            android:label="Search"/>
+        <activity android:name=".view.activities.NotificationActivity"
+            android:label="Notifications"/>
     </application>
 
 </manifest>

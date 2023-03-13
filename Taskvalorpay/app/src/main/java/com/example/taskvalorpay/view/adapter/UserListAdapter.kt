@@ -4,14 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskvalorpay.R
 import com.example.taskvalorpay.databinding.UserListItemBinding
 import com.example.taskvalorpay.model.Users
-import com.example.taskvalorpay.view.UserDetailsActivity
+import com.example.taskvalorpay.view.activities.UserDetailsActivity
 
 class UserListAdapter(val items: MutableList<Users>, val context: Context) :
     RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
