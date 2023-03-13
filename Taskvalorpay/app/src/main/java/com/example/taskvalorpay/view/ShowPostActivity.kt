@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.taskvalorpay.R
 import com.example.taskvalorpay.databinding.ActivityShowpostBinding
 import com.example.taskvalorpay.databinding.ActivityUserdetailsBinding
+import com.example.taskvalorpay.service.NetworkStatusHelper
 import com.example.taskvalorpay.view.adapter.ShowPostAdapter
 import com.example.taskvalorpay.view.adapter.UserListAdapter
 import com.example.taskvalorpay.viewmodel.UserViewmodel
@@ -26,11 +28,21 @@ class ShowPostActivity : AppCompatActivity() {
 
         vm = ViewModelProviders.of(this)[UserViewmodel::class.java]
 
-        binding?.prg?.visibility = View.VISIBLE
-        loaduserpost()
+        NetworkStatusHelper(this).observe(this) {
+
+            if(it){
+                loaduserpost()
+            }else{
+                nointernetconnection()
+            }
+        }
+
     }
 
     fun loaduserpost() {
+        binding?.onactive?.visibility = View.VISIBLE
+        binding?.ondeactive?.visibility = View.GONE
+        binding?.prg?.visibility = View.VISIBLE
         val id = intent.getStringExtra("userid")
         vm?.getUserPost(id!!)?.observe(this, Observer {
             binding?.prg?.visibility = View.GONE
@@ -42,5 +54,10 @@ class ShowPostActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+    fun nointernetconnection(){
+        binding?.onactive?.visibility = View.GONE
+        binding?.ondeactive?.visibility = View.VISIBLE
+        Toast.makeText(this,"No Internet Connectivity", Toast.LENGTH_LONG).show()
     }
 }

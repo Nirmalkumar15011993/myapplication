@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Taskvalorpay</string>
+    <string name="spiderman">https:\/\/simplifiedcoding.net\/demos\/view-flipper\/images\/spiderman.jpg</string>
+    <string name="ironman">https:\/\/simplifiedcoding.net\/demos\/view-flipper\/images\/ironman.jpg</string>
+    <string name="thor">https:\/\/simplifiedcoding.net\/demos\/view-flipper\/images\/thor.jpg</string>
+    <string name="wolverine">https:\/\/simplifiedcoding.net\/demos\/view-flipper\/images\/wolverine.jpeg</string>
+    <string-array name="usericon">
+        <item>@string/spiderman</item>
+        <item>@string/ironman</item>
+        <item>@string/thor</item>
+        <item>@string/wolverine</item>
+    </string-array>
 </resources>
